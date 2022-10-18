@@ -1,0 +1,26 @@
+{% extends "bootstrap/base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница ошибки</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+{% block body %}
+<body>
+    <h2>Ошибка работы с таблицей!</h2>
+
+    {% if reason=='invalid_index' %}
+        <h3>Введите корректный индекс и повторите операция.</h3>
+    {% elif reason=='unknown_error' %}
+        <h3>Неизвестная ошибка.</h3>
+    {% endif %}
+
+    <br>
+    <h3>Следуйте инструции, чтобы избежать ошибки.</h3>
+    <a href="{{ url_for('index') }}">Вернуться к таблице расходов.</a>
+
+</body>
+{% endblock %}
+</html>
